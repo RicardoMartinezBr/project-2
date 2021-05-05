@@ -1,0 +1,148 @@
+/* Global */
+body {
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, ul, ol {
+  font-family: "Karla", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Header global */
+.header-global {
+  background: #ECE2D8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+}
+
+.header-global a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000000;
+  font-family: "Karla", sans-serif;
+}
+
+.header-global a:hover {
+  color: #000000;
+  font-family: "Karla", sans-serif;
+}
+
+/* Index page */
+/*.product-card {
+
+}*/
+/*.index-background {
+  background: url('{{ 'background.jpg' | asset_url }}');
+}*/
+.index-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Footer Global */
+footer a, footer p {
+  color: #333333;
+}
+
+footer ul {
+  list-style-type: none;
+}
+
+.footer-bottom, .footer-top {
+  background: #ECE2D8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+}
+
+.footer-bottom {
+  border-top: 2px solid #3333331A;
+}
+
+footer {
+  border-top: 2px solid #3333331A;
+}
+
+.footer-products {
+  flex: 2;
+}
+
+.contact-list, .foooter-about-us {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.social-links-spacing {
+  margin: 0 10px;
+}
+
+.social-links img {
+  width: 16px;
+  height: 16px;
+}
+
+.copyright-text, footer h4 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.075em;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+/* Product Page */
+/*.single-product-page {
+  display: flex;
+  flex-direction: row;
+}*/
+.single-product-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 40px;
+}
+
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  text-align: left;
+  background: #ECE2D8;
+  color: #FFFFFF;
+  padding: 20px;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.AddToCartButton {
+  text-align: center;
+}

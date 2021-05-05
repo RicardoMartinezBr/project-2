@@ -1,0 +1,52 @@
+<footer>
+
+  <div class="footer-top">
+
+    <ul class="footer-products">
+      <h4>{{ 'footer.list.products' | t }}</h4>
+
+      {% for product in collections.frontpage.products %}
+        <li>
+          <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <div class="contact-list">
+      <h4>{{ linklists.footer.title }}</h4>
+
+      <ul>
+          {% for link in linklists.footer.links %}
+          <li>
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+          {% endfor %}
+      </ul>
+    </div>
+
+    <div class="foooter-about-us">
+      <h4>{{ 'general.about.title' | t }}</h4>
+      <p>{{ 'general.about.description' | t }}</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="copyright">
+      {% assign copyright_date = 'now'| date: '%Y' %}
+      <p class="copyright-text">{{ 'footer.bottom.copyright' | t: date: copyright_date }}</p>
+    </div>
+
+    <div class="social-links">
+      <a href="{{ 'footer.social.facebook_url' | t }}">
+        <img src="{{ 'facebook.svg' | asset_url }}" alt="{{ 'footer.social.alt' | t: social: 'Facebook' }}">
+      </a>
+      <a class="social-links-spacing" href="https://www.instagram.com/{{ 'footer.social.instagram_handle' | t }}">
+        <img src="{{ 'instagram.svg' | asset_url }}" alt="{{ 'footer.social.alt' | t: social: 'Instagram' }}">
+      </a>
+      <a href="https://www.twitter.com/{{ 'footer.social.twitter_handle' | t }}">
+        <img src="{{ 'twitter.svg' | asset_url }}" alt="{{ 'footer.social.alt | t: social: 'Twitter' }}">
+      </a>
+    </div>
+  </div>
+
+</footer>
