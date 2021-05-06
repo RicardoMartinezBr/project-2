@@ -1,18 +1,45 @@
 <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-wrapper">
-  <select name="id" id="productSelect">
-    {% for variant in product.variants %}
-      {% if variant.available %}
-        <option value="{{ variant.id }}">
-          {{ variant.title }}
-        </option>
-      {% else %}
-        <option disabled="disabled">
-          {{ variant.title }} - sold out
-        </option>
-      {% endif %}
-    {% endfor %}
-  </select>
-  <label for="Quantity">{{ 'product.form.quantity' | t }}</label>
-  <input type="number" id="Quantity" name="quantity" value="1" min="1">
-  <button type="submit" name="add" id="AddToCart" class="AddToCartButton">{{ 'product.form.submit' | t }}</button>
+
+  {% if product.variants.size > 1 %}
+    <div class="option-row">
+      <span class="option-title">
+        {{ product.options.first }}
+      </span>
+
+      <div class="option-fieldset">
+        {% for variant in product.variants %}
+          <input class="js-variant-radio" type="radio" name="id" id="variants-{{ forloop.index }}" value="{{ variant.id }}"
+          data-inventory-quantity="{{ variant.inventory_quantity }}" {% unless variant.available %}disabled{% endunless %}>
+          <label for="variants-{{ forloop.index }}">{{ variant.title }}</label>
+        {% endfor %}
+      </div>
+    </div>
+  {% else %}
+    <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+  {% endif %}
+
+  <div class="option-row">
+
+    <label for="Quantity">{{ 'product.form.quantity' | t }}</label>
+
+    <div class="option-fieldset">
+      <div class="visually-hidden">
+        <input type="number" id="Quantity" class="js-quantity-field" name="quantity" value="1" min="1" {% if
+        product.variants.size == 1%}max="{{ product.variants.first.inventory_quantity }}"{% endif %}>
+      </div>
+      <button class="quantity-button js-quantity-button minus" type="button" disabled>
+        &ndash;
+      </button>
+
+      <span class="quantity-text js-quantity-text">
+        1
+      </span>
+
+      <button class="quantity-button js-quantity-button plus" type="button">
+        +
+      </button>
+    </div>
+  </div>
+
+  <button type="submit" name="add" id="add-to-cart-button" class="AddToCartButton" {% if product.variants.size > 1 %}disabled{% endif %}>{{ 'product.form.submit' | t }}</button>
 </form>

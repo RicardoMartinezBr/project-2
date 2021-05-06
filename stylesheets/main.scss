@@ -29,7 +29,7 @@ a:hover {
   text-decoration: none;
 }
 
-@mixin reset-input {
+/*@mixin reset-input {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -45,7 +45,7 @@ a:hover {
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
   text-align: left;
-}
+}*/
 
 /* Header global */
 
@@ -144,27 +144,65 @@ footer {
 
 /* Product Page */
 
-/*.single-product-page {
+.single-product-page {
   display: flex;
   flex-direction: row;
-}*/
+  margin: $line-gutter*2;
+  height: 100vh;
+  /*flex: 1;*/
+}
 
-.single-product-page {
+/*.single-product-page {
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin: $line-gutter*2;
+}*/
+
+.single-product-image {
+  width: 50vw;
+  height: 80vh;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+  /*flex: 1;*/
 }
 
-button {
+.product-image {
+  /*flex: 1;*/
+}
+
+.product-info-wrapper {
+  background: $background-color;
+  padding: $line-gutter*2;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 50vw;
+  height: 80vh;
+}
+
+.product-info-wrapper {
+  color: $white;
+  /*flex: 1;*/
+}
+
+/*button {
   @include reset-input;
   background: $background-color;
   color: $white;
   padding: $line-gutter;
-}
+}*/
+
+/* Product Form */
 
 .form-wrapper {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+
+.visually-hidden {
+  display: none;
 }
 
 .AddToCartButton {
