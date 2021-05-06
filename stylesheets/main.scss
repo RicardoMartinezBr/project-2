@@ -1,12 +1,14 @@
 $line-gutter: 20px;
 
-$text-font: 'Karla', sans-serif;
+$text-font: "Karla", "Helvetica Neue", Arial, Helvetica, sans-serif;
 
 $background-color: #ECE2D8;
 $black: #000000;
 $white: #FFFFFF;
 
 $text-color: #333333;
+
+/*$border-color: rgba(255, 255, 255, 0.15);*/
 
 /* Global */
 
@@ -29,7 +31,7 @@ a:hover {
   text-decoration: none;
 }
 
-/*@mixin reset-input {
+@mixin reset-input {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -45,7 +47,7 @@ a:hover {
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
   text-align: left;
-}*/
+}
 
 /* Header global */
 
@@ -183,15 +185,12 @@ footer {
 
 .product-info-wrapper {
   color: $white;
-  /*flex: 1;*/
+  background: #333333;
 }
 
-/*button {
+button {
   @include reset-input;
-  background: $background-color;
-  color: $white;
-  padding: $line-gutter;
-}*/
+}
 
 /* Product Form */
 
@@ -206,6 +205,115 @@ footer {
 }
 
 .AddToCartButton {
+  padding: $line-gutter;
+  width: 100%;
+  text-align: center;
+  background: $background-color;
+}
+
+/* Cart */
+
+.cart-background {
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+}
+
+.cart-checkout-box {
+  background: #333333;
+  color: $white;
+  width: 300px;
+  overflow: auto;
+  padding: $line-gutter*2;
+  height: 100%;
+  position: fixed;
+}
+
+.cart-background a {
+  color: $white;
+}
+
+.cart-background h1 {
+  text-align: center;
+  margin-bottom: $line-gutter;
+}
+
+.cart-product-image .cart-single-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.cart-product-image {
+  position: relative;
+}
+
+.remove-x {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+}
+
+.cart-checkout-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-borders {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: $line-gutter;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: $line-gutter;
+}
+
+.total-price {
+  display: flex;
+  justify-content: space-between;
+  margin: $line-gutter 0;
+}
+
+.cart-checkout-wrapper:hover .remove-x {
+  display: block;
+}
+
+.checkout-button {
+  background: #bea482;
+  color: $white;
+  padding: $line-gutter;
+  width: 100%;
   text-align: center;
 }
+
+.test-123 {
+  width: 50%;
+  color: #000000;
+  font-size: 100px;
+  height: 50vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

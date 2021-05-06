@@ -9,9 +9,14 @@
   {% assign cart_text = 'cart.button.count' | t: itemCount: cart.item_count %}
   {% assign cart_close_text = 'cart.button.close' | t %}
 
-  <a href="/">
-    <span class="cart-text">{{ cart_text }}</span>
-    <span class="cart-text">{{ cart_close_text }}</span>
-  </a>
 
+  {% if template != 'cart' %}
+    <a href="/cart">
+      <span class="cart-text">{{ cart_text }}</span>
+    </a>
+  {% else %}
+    <a href="/">
+      <span class="cart-text">{{ cart_close_text }}</span>
+    </a>
+  {% endif %}
 </header>

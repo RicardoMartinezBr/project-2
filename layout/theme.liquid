@@ -18,7 +18,7 @@
   </script>
   {{ 'application.js' | asset_url | script_tag }}
 </head>
-<body>
+<body class="template-{{ template }}">
 
   {% include 'header' %}
 

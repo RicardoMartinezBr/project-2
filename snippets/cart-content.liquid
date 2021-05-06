@@ -1,0 +1,44 @@
+<div class="cart-background">
+<div>
+  <h3 class="test-123">I am here just check things out!!!</h3>
+</div>
+
+  <div class="cart-checkout-box">
+    {% if cart.item_count > 0 %}
+      <form action="/cart" method="post"  novalidate>
+        <h1>{{ 'cart.filled.title' | t }}</h1>
+        <div class="cart-borders">
+          {% for item in cart.items %}
+            <div class="cart-checkout-wrapper">
+              <div class="cart-product-info">
+                <a href="{{ item.url }}">{{ item.product.title }}</a>
+                <!-- <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="1"> -->
+                <div class="variants-color">
+                  {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money_without_trailing_zeros }}{% endif %}
+                  <p>{{ item.variant.title }} &ndash; {{ item.line_price | money_without_trailing_zeros }} </p>
+                  {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
+                </div>
+              </div>
+
+              <div class="cart-product-image">
+                <a href="{{ item.url | within: collections.all }}">
+                  <img class="cart-single-image" src="{{ item | img_url: '80x80' }}" alt="{{ item.title | escape }}">
+                </a>
+                <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
+                  <img class="remove-x" src="{{ 'x-remove.svg' | asset_url }}" alt="">
+                </a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="total-price">
+          <h3>{{ 'cart.filled.subtotal' | t }}</h3>
+          <h3>{{ cart.total_price | money }}</h3>
+        </div>
+        <button class="checkout-button" type="submit" name="checkout">{{ 'cart.filled.button' | t }}</button>
+      </form>
+    {% else %}
+      <h2>{{ 'cart.empty.title' | t }}</h2>
+    {% endif %}
+  </div>
+</div>
